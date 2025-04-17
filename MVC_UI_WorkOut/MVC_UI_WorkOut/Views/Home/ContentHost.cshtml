@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Content Host";
+}
+
+<h2>Content Host</h2>
+
+<script language="javascript">
+    function GoToMaritalStatus() {
+        top.location.href = "http://" + top.location.host + "/Beneficiary/MaritalStatus";
+    }
+</script>
+
+<div id="AdditionalServices">
+    <h2>Additional Services</h2>
+    <div id="BeneficiaryDesignations">
+        <h3>Beneficiary Designations</h3>
+        <p>You may elect or update your beneficiaries online at any time. <a href="javascript:GoToMaritalStatus();">Beneficiary Designations Updates</a></p>
+    </div>
+</div>

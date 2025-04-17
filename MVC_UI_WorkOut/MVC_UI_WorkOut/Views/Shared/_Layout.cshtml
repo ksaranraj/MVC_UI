@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Benefits Portal</title>
+    <link rel="stylesheet" href="~/Content/Site.css" />
+</head>
+<body>
+    <!-- Top Navigation -->
+    <div class="top-nav">
+        <ul class="main-menu">
+            <li><a href="@Url.Action("ContentHost", "Home")">Enrollment</a></li>
+            <li><a href="#">Account Information</a></li>
+
+            <li class="dropdown">
+                <a href="#">Account Elections</a>
+                <ul class="submenu">
+                    <li><a href="#">Deferral Elections</a></li>
+                    <li><a href="#">Distribution Elections</a></li>
+                    <li><a href="@Url.Action("Beneficiaries", "Beneficiary")">Beneficiary Designations/Update</a></li>
+                    <li><a href="#">Custom Account</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">Investments</a></li>
+            <li><a href="#">Document Library</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        @RenderBody()
+    </div>
+</body>
+</html>

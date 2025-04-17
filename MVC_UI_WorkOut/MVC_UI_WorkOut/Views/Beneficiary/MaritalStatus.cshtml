@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Beneficiaries</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-merrill {
+            width: 150px;
+            margin-right: 20px;
+        }
+
+        .logo-boa {
+            width: 200px;
+        }
+
+        .plan-info {
+            margin-bottom: 20px;
+        }
+
+        .balance {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            color: #777;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .deferrals {
+            margin-bottom: 15px;
+        }
+
+        .deferrals-amount {
+            font-weight: bold;
+        }
+
+        .tabs {
+            margin-bottom: 20px;
+        }
+
+            .tabs a {
+                text-decoration: none;
+                color: #333;
+                padding: 10px 15px;
+                border-bottom: 2px solid #ccc;
+                margin-right: 10px;
+            }
+
+                .tabs a.active {
+                    border-bottom: 2px solid #007bff;
+                    font-weight: bold;
+                }
+
+        .beneficiaries-section {
+            margin-bottom: 20px;
+        }
+
+        .marital-status {
+            margin-bottom: 15px;
+        }
+
+            .marital-status label {
+                margin-right: 10px;
+            }
+
+        .actions button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+            .actions button.primary {
+                background-color: #007bff;
+                color: white;
+                border-color: #007bff;
+            }
+
+        .footer {
+            font-size: 0.8em;
+            color: #777;
+        }
+
+            .footer a {
+                color: #777;
+                text-decoration: none;
+                margin-right: 10px;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="merrill_logo.png" alt="Merrill Logo" class="logo-merrill">
+        <img src="boa_logo.png" alt="Bank of America Logo" class="logo-boa">
+        <div style="margin-left: auto;">
+            <a href="#">Home</a>
+            <a href="#">Accounts</a>
+            <a href="#">Ed</a>
+        </div>
+    </div>
+
+    <div class="plan-info">
+        <h2>ABC Deferred Comp Test Plan</h2>
+        <div class="balance">$<span class="balance-amount">514.71</span></div>
+        <div class="date">Balance as of 01/03/2025</div>
+        <div class="deferrals">$<span class="deferrals-amount">0.00</span> Deferrals YTD <span style="cursor: help;">ⓘ</span></div>
+    </div>
+
+    <div class="tabs">
+        <a href="#">Enrollment</a>
+        <a href="#">Account Information</a>
+        <a href="#">Account Elections</a>
+        <a href="#">Investments</a>
+        <a href="#">Document Library</a>
+    </div>
+
+    <div class="beneficiaries-section">
+        <h2>Beneficiaries</h2>
+        <div class="marital-status">
+            <h3>Current marital status</h3>
+            <label><input type="radio" name="marital_status" value="single" checked> Single</label>
+            <label><input type="radio" name="marital_status" value="married"> Married</label>
+        </div>
+        <div class="actions">
+            <button class="primary">Continue</button>
+            <button>Back</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="#">Privacy Statement</a>
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Sitemap</a>
+        <a href="#">Call Us</a>
+        <a href="#">Glossary</a>
+        <a href="#">Your Privacy Choices</a> <img src="privacy_choices_icon.png" alt="Privacy Choices">
+    </div>
+
+</body>
+</html>
