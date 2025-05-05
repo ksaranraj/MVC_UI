@@ -1,4 +1,4 @@
-﻿@{
+﻿@*@{
         ViewBag.Title = "Beneficiaries";
     }
 
@@ -6,7 +6,7 @@
 
     <div>
         <strong>Current marital status:</strong> Single
-        <a href="@Url.Action("MaritalStatus", "Beneficiary")" style="margin-left: 20px; color: blue;">Edit</a>
+        <a href="MaritalStatus" style="margin-left: 20px; color: blue;">Edit</a>
     </div>
 
     <h3>Primary beneficiaries</h3>
@@ -14,4 +14,90 @@
         <p><strong>Name:</strong> Erina Participant</p>
         <p><strong>SSN-TIN:</strong> XXX-XX-XXXX</p>
         <p><strong>Relationship:</strong> Daughter</p>
-    </div>*
+    </div>**@
+
+@{
+    ViewData["Title"] = "Contribution Rate";
+}
+
+<script>
+    function validateInput(id) {
+        const input = document.getElementById(id);
+        const value = input.value || input.placeholder;
+        const max = parseFloat(input.dataset.max);
+        const min = parseFloat(input.dataset.min);
+        const incr = parseFloat(input.dataset.incr);
+        const zeroAllowed = input.dataset.zeroAllowed === "true";
+        const isEnroll = input.dataset.isenroll === "true";
+        const errorDiv = document.getElementById("errMsg_" + id);
+
+        if (value === "") {
+            errorDiv.innerText = "Please enter value";
+            return false;
+        }
+
+        const floatValue = parseFloat(value);
+        if (isNaN(floatValue)) {
+            errorDiv.innerText = "Invalid number";
+            return false;
+        }
+
+        if (!zeroAllowed && floatValue === 0) {
+            errorDiv.innerText = "Zero not allowed";
+            return false;
+        }
+
+        if (floatValue < min || floatValue > max) {
+            errorDiv.innerText = `Value must be between ${min} and ${max}`;
+            return false;
+        }
+
+
+
+        errorDiv.innerText = ""; // clear error
+        return true;
+    }
+
+    function increment(id) {
+        const input = document.getElementById(id);
+        const incr = parseFloat(input.dataset.incr);
+        const current = parseFloat(input.value || 0);
+        input.value = current + incr;
+        validateInput(id);
+    }
+
+    function decrement(id) {
+        const input = document.getElementById(id);
+        const incr = parseFloat(input.dataset.incr);
+        const current = parseFloat(input.value || 0);
+        input.value = current - incr;
+        validateInput(id);
+    }
+</script>
+
+
+<div class="contribution-section">
+    <span id="errMsg_Header" class="error-msg"></span>
+    <h2>Roth Contribution</h2>
+    <label for="rothContribution">Stepper 1</label>
+    <div class="stepper-container">
+        <button type="button" onclick="decrement('rothContribution1')">-</button>
+        <input type="number" id="rothContribution1" name="rothContribution"
+               data-max="10" data-min="0" data-incr="1.0" data-zero-allowed="true" data-isEnroll="true"
+               placeholder="0" onchange="validateInput('rothContribution1')" />
+        <button type="button" onclick="increment('rothContribution1')">+</button>
+    </div>
+    <span id="errMsg_rothContribution1" class="error-msg"></span>
+    <br/><br />
+    <label for="rothContribution">Stepper 2</label>
+    <div class="stepper-container">
+        <button type="button" onclick="decrement('rothContribution2')">-</button>
+        <input type="number" id="rothContribution2" name="rothContribution2"
+               data-max="10" data-min="0" data-incr="1.0" data-zero-allowed="true" data-isEnroll="true"
+               placeholder="0" onchange="validateInput('rothContribution2')" />
+        <button type="button" onclick="increment('rothContribution2')">+</button>
+    </div>
+    <span id="errMsg_rothContribution2" class="error-msg"></span>
+    <br/><br />
+    <input type="button" value="Continue"/>
+</div>
